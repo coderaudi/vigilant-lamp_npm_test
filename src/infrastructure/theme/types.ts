@@ -128,12 +128,34 @@ export type Colors = {
   };
 };
 
+export type Fonts = {
+  body: string;
+  heading: string;
+  monospace: string;
+  hint: string;
+};
+export type FontWeights = { regular: number; medium: number; bold: number };
+export type FontSizes = {
+  caption: string;
+  button: string;
+  body: string;
+  label: string;
+  title: string;
+  hint: string;
+  h6: string;
+  h5: string;
+  h4: string;
+  h3: string;
+  h2: string;
+  h1: string;
+};
+
 export type Theme = {
   themeName?: string;
   colors?: Colors;
-  fonts?: object;
-  fontWeights?: object;
-  fontSizes?: object;
+  fonts?: Fonts;
+  fontWeights?: FontWeights;
+  fontSizes?: FontSizes;
   sizes?: string[];
   space?: string[];
 };

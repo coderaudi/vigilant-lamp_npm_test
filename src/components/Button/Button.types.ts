@@ -1,11 +1,11 @@
-import { ReactElement, MouseEventHandler } from "react";
+import { ReactElement, MouseEventHandler } from 'react';
 
 export interface ButtonProps {
   title: string;
   titleColor?: string;
-  variant?: "outlined" | "primaryLink" | "secondaryLink";
+  variant?: 'primary' | 'outlined' | 'primaryLink' | 'secondaryLink';
   iconRight?: ReactElement;
-  iconRightSize?: "small" | "medium" | "large";
+  iconRightSize?: 'small' | 'medium' | 'large';
   loading?: boolean;
   loadingStyle?: object;
   style?: object;

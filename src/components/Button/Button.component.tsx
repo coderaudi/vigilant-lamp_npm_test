@@ -3,11 +3,13 @@ import { ButtonContainer } from "./Button.styles";
 import { useTheme } from "styled-components";
 import { ButtonProps } from "./Button.types";
 import { Theme } from "../../infrastructure/theme/types";
+import { darkTheme } from "../../infrastructure/theme/dark";
+import CCMText from "../Text";
 
 const CCMButton = ({
   title,
   titleColor,
-  variant,
+  variant = 'primary',
   iconRight,
   iconRightSize = "small",
   loading,
@@ -19,7 +21,7 @@ const CCMButton = ({
   onClick,
   ...props
 }: ButtonProps) => {
-  const theme: Theme = useTheme();
+  const theme: Theme = useTheme() || darkTheme;
   const getVariantColor = () => {
     if (theme?.colors) {
       if (variant === "primaryLink") {
@@ -28,6 +30,8 @@ const CCMButton = ({
         return theme.colors.text.primary;
       } else if (variant === "secondaryLink") {
         return theme.colors.text.secondary;
+      } else if (variant === 'primary') {
+        return "#f2f2f2";
       }
     }
     return "#f2f2f2";
@@ -42,9 +46,10 @@ const CCMButton = ({
       bgColor={bgColor}
       disabled={disabled}
       onClick={onClick}
+      theme={theme}
       {...props}
     >
-      <p color={titleColor ? titleColor : getVariantColor()}>{title}</p>
+      <CCMText color={titleColor ? titleColor : getVariantColor()}>{title}</CCMText>
       {loading && <p>loading</p>}
     </ButtonContainer>
   );
